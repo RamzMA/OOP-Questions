@@ -56,3 +56,35 @@ class Student:
         if not self.grades:
             return 0
         return min(self.grades)
+    
+
+    #test case
+if __name__ == "__main__":
+    student = Student("Alice", 20, [85.5, 90.0, 78.0])
+    print(student)  # Output: Student name=Alice, age=20, average=84.5
+    student.add_grade(92.0)
+    print(student.grades)  # Output: [85.5, 90.0, 78.0, 92.0]
+    student.remove_grade(78.0)
+    print(student.grades)  # Output: [85.5, 90.0, 92.0]
+    print(student.highest_grade())  # Output: 92.0
+    print(student.lowest_grade())   # Output: 85.5
+
+    #2nd test case
+    student2 = Student("Bob", 22, [70.0, 75.5, 80.0])
+    print(student2)  # Output: Student name=Bob, age=22, average=75.16666666666667
+    student2.add_grade(85.0)
+    print(student2.grades)  # Output: [70.0, 75.5, 80.0, 85.0]
+    student2.remove_grade(75.5)
+    print(student2.grades)  # Output: [70.0, 80.0, 85.0]
+    print(student2.highest_grade())  # Output: 85.0
+    print(student2.lowest_grade())   # Output: 70.0
+
+    #3rd test case
+    student3 = Student("Charlie", 19, [])
+    print(student3)  # Output: Student name=Charlie, age=19, average
+    student3.add_grade(88.0)
+    print(student3.grades)  # Output: [88.0]
+    student3.remove_grade(88.0)
+    print(student3.grades)  # Output: []
+    print(student3.highest_grade())  # Output: 0
+    print(student3.lowest_grade())   # Output: 0
