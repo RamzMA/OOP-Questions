@@ -38,6 +38,23 @@ class Task:
         )
     
 
+class TaskManager:
+    def __init__(self):
+        self._tasks = {}
+
+    def add_task(self, task: Task) -> None:
+        if task in self._tasks:
+            raise ValueError("Already exist")
+        
+        self._tasks[task.task_id] = task
+
+    def get_task(self, task_id: int) -> Task:
+        if task_id not in self._tasks:
+            raise ValueError("Task doesnt exist")
+        
+        return self._tasks[task_id]
+    
+
     #Test Cases
 if __name__ == "__main__":
     task1 = Task(1, "Task 1", "This is the first task")
